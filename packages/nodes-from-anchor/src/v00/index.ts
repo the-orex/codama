@@ -1,6 +1,7 @@
 export * from './AccountNode';
 export * from './DefinedTypeNode';
 export * from './ErrorNode';
+export * from './EventInstructionNode';
 export * from './InstructionAccountNode';
 export * from './InstructionArgumentNode';
 export * from './InstructionNode';
