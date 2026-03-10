@@ -28,7 +28,9 @@ export function eventInstructionNodeFromAnchorV00(event: IdlV00Event): Instructi
         type: fixedSizeTypeNode(bytesTypeNode(), 8),
     });
     const dataArguments = [discriminatorField, ...fieldArguments];
-    const discriminators = [fieldDiscriminatorNode('discriminator')];
+    // Anchor CPI events have an 8-byte self-invocation prefix before the
+    // actual event discriminator, so the discriminator starts at offset 8.
+    const discriminators = [fieldDiscriminatorNode('discriminator', 8)];
 
     return instructionNode({
         accounts: [],
